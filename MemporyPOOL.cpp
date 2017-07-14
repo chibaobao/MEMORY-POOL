@@ -44,7 +44,7 @@ MemporyPOOL::MemporyPOOL()
              i_useSize += CHUNK_ALIGN_BYTES - (i_useSize % CHUNK_ALIGN_BYTES);
          }
 
-         if(i_useSize >= m_iBasePageSize / m_dfactor)
+         if(i_useSize*m_dfactor >= m_iBasePageSize )
          {
              m_iSlabClassListUsed = i;
              m_SlabClassList[m_iSlabClassListUsed]=new SlabClass(m_iBasePageSize,1,m_iSlabClassListUsed,&m_pCurrent,&m_iAvailSize,&m_slabLock);
@@ -91,7 +91,7 @@ MemporyPOOL::MemporyPOOL()
              i_useSize += CHUNK_ALIGN_BYTES - (i_useSize % CHUNK_ALIGN_BYTES);
          }
 
-         if(i_useSize >= size / m_dfactor)
+         if(i_useSize*m_dfactor >= size)
          {
              m_iSlabClassListUsed = i;
              m_SlabClassList[m_iSlabClassListUsed]=new SlabClass(size,1,m_iSlabClassListUsed,&m_pCurrent,&m_iAvailSize,&m_slabLock);
