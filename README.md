@@ -14,3 +14,6 @@ MEMORY_POOL是一个基于c++的内存池，该内存池是根据memcache中的�
 ## main.cpp
 
 是一个测试程序,也是一个示例，是多线程下对SlabClass的调用
+
+![SlabClass](https://raw.githubusercontent.com/chibaobao/MEMORY-POOL/master/SlabClass.png)
+![MemporyPOOL](https://raw.githubusercontent.com/chibaobao/MEMORY-POOL/master/MemporyPOOL.png)
