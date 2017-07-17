@@ -22,7 +22,7 @@ int SlabClass::FreeItem(void* ptr)//ptr指向整个chunk(包括id)
 
     it = (Item *)ptr;
 
-    it->id = m_id;
+    it->id = 0;//释放后chunk被添加到链表中无需存储id,将id置0代表已经被释放，重复释放就可以被检测到了
     it->prev = 0;
 
     m_MyLock.lock();
@@ -63,10 +63,7 @@ void* SlabClass::GetItem()
                 m_pSlots = 0;
             }
             ret = (void *)it;
-            if(*(unsigned int*)it != m_id)
-            {
-                *(unsigned int*)it = m_id;
-            }
+            *(unsigned int*)it = m_id;
             is_again = 0;
             m_MyLock.unlock();
         }

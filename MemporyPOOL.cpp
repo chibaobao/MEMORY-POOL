@@ -177,6 +177,8 @@ MemporyPOOL::MemporyPOOL()
      ptr = ((char*)ptr - sizeof(unsigned int));
      p_it = (Item*)ptr;
      id = p_it->id;
+     if(0 == id)//如果id是0代表已经被释放过了
+         return ;
      m_SlabClassList[id]->FreeItem(ptr);
      fprintf(stderr, "Free %3u  pBlock %7p\n", id,pBlock);
  }

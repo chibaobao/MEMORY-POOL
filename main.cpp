@@ -14,7 +14,7 @@ void *thread_fun()
     for(int i =0 ;i<3;i++)
     {
         int size =   (rand() % ((64*1024*1024)+1)) ;
-        sleep(rand()%5);
+        sleep(rand()%3);
         ptr = pool->Alloc(size);
         if(!ptr)
         {
@@ -24,7 +24,7 @@ void *thread_fun()
         {
             fprintf(stderr, "pid %lu ,ptr:%p =======\n",(unsigned long)pthread_self(),ptr);
         }
-        sleep(rand()%50);
+        sleep(rand()%3);
         pool->Free(ptr);
         fprintf(stderr,"\n");
     }
