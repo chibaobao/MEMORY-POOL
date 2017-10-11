@@ -1,6 +1,6 @@
 # MEMORY_POOL
 
-MEMORY_POOL是一个基于c++的内存池,该线程池不敢保证比malloc效率高，因此在没有必要用线程池的地方尽量不用，该线程池因为程序跑在特定硬件上，malloc效率太低，该内存池是根据memcache中的内存池改变而来，并且删除了一些不必要的概念。同时改程序是线程安全的。其中mutex线程锁依赖于c++11。
+MEMORY_POOL是一个基于c++的内存池,该内存池不敢保证比malloc效率高，因此在没有必要用内存池的地方尽量不用，该内存池因为程序跑在特定硬件上，malloc效率太低，该内存池是根据memcache中的内存池改变而来，并且删除了一些不必要的概念。同时改程序是内存安全的。其中mutex线程锁依赖于c++11。
 建议编译命令：``g++  -g  -std=c++11 -pthread SlabClass.cpp MemporyPOOL.cpp main.cpp``
 
 ## MemporyPOOL
